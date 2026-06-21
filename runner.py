@@ -21,16 +21,16 @@ def runner(state: FixerState) -> FixerState:
         f.write(full_script)
         temp_path=f.name
 
-        try:
-            #Running the script
-            result = subprocess.run(["python", temp_path], capture_output=True, text=True,timeout=10)
-            #Checking if the script passed
-            if result.returncode == 0:
-                state["result"] = "passed"
-            else:
-                state["result"]= result.stderr
-        except subprocess.TimeoutExpired:
-            state["result"] = "timed out"
-        finally:
-            os.remove(temp_path)
-        return state
+    try:
+        #Running the script
+        result = subprocess.run(["python", temp_path], capture_output=True, text=True,timeout=10)
+        #Checking if the script passed
+        if result.returncode == 0:
+            state["result"] = "passed"
+        else:
+            state["result"]= result.stderr
+    except subprocess.TimeoutExpired:
+        state["result"] = "timed out"
+    finally:
+        os.remove(temp_path)
+    return state
