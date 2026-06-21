@@ -1,7 +1,7 @@
 import subprocess
 import tempfile
 import os
-from state import FixerState
+from agents.state import FixerState
 
 def strip_code(code: str) -> str:
     code = code.strip()

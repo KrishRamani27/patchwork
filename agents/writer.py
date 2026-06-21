@@ -1,7 +1,7 @@
 import os
 from dotenv import load_dotenv
 from anthropic import Anthropic
-from state import FixerState
+from agents.state import FixerState
 
 load_dotenv()
 #Loading the API key from the environment variables
