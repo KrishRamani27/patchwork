@@ -1,6 +1,6 @@
-from state import FixerState
-from runner import runner
-from fixer import fixer
+from agents.state import FixerState
+from agents.runner import runner
+from agents.fixer import fixer
 
 # Deliberately broken: doesn't handle n < 2, so is_prime(1) wrongly returns True
 broken_code = """def is_prime(n):

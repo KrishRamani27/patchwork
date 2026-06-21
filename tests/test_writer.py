@@ -1,5 +1,5 @@
-from state import FixerState
-from writer import writer
+from agents.state import FixerState
+from agents.writer import writer
 
 state: FixerState = {
     "task": "Write a function that reverses a string",
