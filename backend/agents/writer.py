@@ -1,8 +1,8 @@
 import os
 from dotenv import load_dotenv
 from anthropic import Anthropic
-from agents.state import FixerState
-from agents.utils import strip_code
+from backend.agents.state import FixerState
+from backend.agents.utils import strip_code
 
 load_dotenv()
 #Loading the API key from the environment variables

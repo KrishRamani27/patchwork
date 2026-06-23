@@ -1,8 +1,7 @@
 import os
-from agents.state import FixerState
 from dotenv import load_dotenv
 from anthropic import Anthropic
-from agents.utils import strip_code
+from backend.agents.state import FixerState
 
 load_dotenv()
 client=Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))

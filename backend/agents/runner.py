@@ -1,8 +1,8 @@
 import subprocess
 import tempfile
 import os
-from agents.state import FixerState
-from agents.utils import strip_code
+from backend.agents.state import FixerState
+from backend.agents.utils import strip_code
 
 def runner(state: FixerState) -> FixerState:
     code = strip_code(state["code"])
