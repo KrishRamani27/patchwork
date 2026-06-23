@@ -2,16 +2,7 @@ import subprocess
 import tempfile
 import os
 from agents.state import FixerState
-
-def strip_code(code: str) -> str:
-    code = code.strip()
-    if code.startswith("```"):
-        lines = code.split("\n")
-        lines = lines[1:]
-        if lines and lines[-1].strip().startswith("```"):
-            lines =lines[:-1]
-        code = "\n".join(lines)
-    return code
+from agents.utils import strip_code
 
 def runner(state: FixerState) -> FixerState:
     code = strip_code(state["code"])

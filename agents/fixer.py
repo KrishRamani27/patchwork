@@ -2,6 +2,7 @@ import os
 from agents.state import FixerState
 from dotenv import load_dotenv
 from anthropic import Anthropic
+from agents.utils import strip_code
 
 load_dotenv()
 client=Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
@@ -20,6 +21,6 @@ def fixer(state: FixerState) -> FixerState:
         messages=[{"role": "user", "content": prompt}]
     )
 
-    state["code"]=response.content[0].text
+    state["code"] = strip_code(response.content[0].text)
     state["attempts"]+=1
     return state
