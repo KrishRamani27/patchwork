@@ -5,6 +5,15 @@ from graph import app as graph_app
 
 api = FastAPI()
 
+from fastapi.middleware.cors import CORSMiddleware
+
+api.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:5173"],
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 class SolveRequest(BaseModel):
     task: str
     tests: str
