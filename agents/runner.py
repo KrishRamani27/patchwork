@@ -11,10 +11,23 @@ def runner(state: FixerState) -> FixerState:
     with tempfile.NamedTemporaryFile(mode="w", suffix=".py", delete=False) as f:
         f.write(full_script)
         temp_path=f.name
+        temp_dir = os.path.dirname(temp_path)
+        temp_name = os.path.basename(temp_path)
 
     try:
         #Running the script
-        result = subprocess.run(["python", temp_path], capture_output=True, text=True,timeout=10)
+        result = subprocess.run(
+        [
+            "docker", "run", "--rm",
+            "--network", "none",
+            "-v", f"{temp_dir}:/sandbox",
+            "patchwork-sandbox",
+            "python", f"/sandbox/{temp_name}"
+        ],
+        capture_output=True,
+        text=True,
+        timeout=10
+        )
         #Checking if the script passed
         if result.returncode == 0:
             state["result"] = "passed"
