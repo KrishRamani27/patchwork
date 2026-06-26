@@ -10,7 +10,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 api.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=["https://patchwork-hazel.vercel.app"],
     allow_methods=["*"],
     allow_headers=["*"],
 )
