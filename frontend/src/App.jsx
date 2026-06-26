@@ -14,7 +14,7 @@ function App() {
     setResult(null)
 
     try {
-      const response = await fetch('http://localhost:8000/solve', {
+      const response = await fetch("https://patchwork-9lfw.onrender.com/solve", {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ task, tests }),
